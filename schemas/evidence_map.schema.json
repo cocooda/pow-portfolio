@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pow-portfolio.dev/schemas/evidence_map.schema.json",
+  "title": "pow-portfolio Evidence Map",
+  "type": "object",
+  "required": ["schema_version", "project", "evidence", "claims", "risk_summary"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "project": {
+      "type": "object",
+      "required": ["root", "name"],
+      "properties": {
+        "root": { "type": "string" },
+        "name": { "type": "string" },
+        "package_manager": { "type": "string" },
+        "git_branch": { "type": "string" },
+        "git_remote_public_safe": { "type": "boolean" }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceItem" }
+    },
+    "claims": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/candidateClaim" }
+    },
+    "risk_summary": {
+      "type": "object",
+      "properties": {
+        "total_risks": { "type": "number" },
+        "risk_categories": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "evidenceItem": {
+      "type": "object",
+      "required": ["id", "source_type", "source_tool", "artifact_id", "title", "summary", "public_safe_excerpt", "private_risk", "confidence", "paths", "claim_hints", "public_safe", "weight"],
+      "properties": {
+        "id": { "type": "string" },
+        "source_type": { "type": "string" },
+        "source_tool": { "type": "string" },
+        "artifact_id": { "type": "string" },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "public_safe_excerpt": { "type": "string" },
+        "private_risk": { "type": "array", "items": { "type": "string" } },
+        "confidence": { "type": "number" },
+        "paths": { "type": "array", "items": { "type": "string" } },
+        "refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "value"],
+            "properties": {
+              "label": { "type": "string" },
+              "value": { "type": "string" }
+            }
+          }
+        },
+        "commit": { "type": "string" },
+        "date": { "type": "string" },
+        "claim_hints": { "type": "array", "items": { "type": "string" } },
+        "public_safe": { "type": "boolean" },
+        "weight": { "type": "number" }
+      }
+    },
+    "candidateClaim": {
+      "type": "object",
+      "required": ["id", "claim", "category", "evidence_ids", "confidence", "public_safe_rewrite", "risks", "needs_user_confirmation", "recommended_outputs"],
+      "properties": {
+        "id": { "type": "string" },
+        "claim": { "type": "string" },
+        "category": { "type": "string" },
+        "evidence_ids": { "type": "array", "items": { "type": "string" } },
+        "confidence": { "type": "number" },
+        "public_safe_rewrite": { "type": "string" },
+        "risks": { "type": "array", "items": { "type": "string" } },
+        "needs_user_confirmation": { "type": "boolean" },
+        "recommended_outputs": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

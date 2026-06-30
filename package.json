@@ -1,0 +1,55 @@
+{
+  "name": "pow-portfolio",
+  "version": "0.1.0",
+  "description": "Local-first project showcase compiler for private or messy developer projects.",
+  "type": "module",
+  "bin": {
+    "pow-portfolio": "dist/cli.js",
+    "pow": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "skill",
+    "schemas",
+    "README.md",
+    "LICENSE",
+    "docs",
+    "examples"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "check": "tsc --noEmit -p tsconfig.json",
+    "test": "npm run build && node --test dist/tests/**/*.test.js",
+    "test:smoke": "npm run build && node dist/cli.js doctor && node dist/cli.js init --force && node dist/cli.js collect --repo . && node dist/cli.js brief && node dist/cli.js export"
+  },
+  "keywords": [
+    "agent-skill",
+    "case-study",
+    "developer-tools",
+    "evidence-adapter",
+    "evidence-map",
+    "local-first",
+    "npx",
+    "portfolio",
+    "project-case-study",
+    "project-showcase",
+    "proof-of-work",
+    "resume",
+    "static-showcase",
+    "technical-proof",
+    "token-efficient"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0"
+  }
+}

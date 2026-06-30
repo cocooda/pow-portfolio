@@ -1,0 +1,21 @@
+.pow/
+*.zip
+create_*.py
+
+# Private agent orchestration / implementation planning docs
+AGENT.md
+CLAUDE.md
+GEMINI.md
+CODEX.md
+.codex/
+.cursor/
+.claude/
+.github/copilot-instructions.md
+docs/CODEX_HANDOFF.md
+docs/TASKS.md
+docs/tasks/
+docs/superpowers/
+docs/**/plans/
+docs/**/handoff*.md
+docs/**/*handoff*.md
+docs/**/*agent*.md

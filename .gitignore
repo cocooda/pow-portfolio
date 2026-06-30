@@ -1,0 +1,82 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+
+# Build outputs
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Local pow-portfolio workspaces and generated artifacts
+.pow/
+.pow/**
+*.portfolio.local.*
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cert
+*.kubeconfig
+
+# Logs, coverage, caches
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+coverage/
+.nyc_output/
+.cache/
+.tmp/
+tmp/
+.temp/
+
+# Local editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.example.json
+.idea/
+*.swp
+*.swo
+
+
+# Private agent orchestration / implementation planning docs
+AGENT.md
+CLAUDE.md
+GEMINI.md
+CODEX.md
+.codex/
+.cursor/
+.claude/
+.github/copilot-instructions.md
+docs/CODEX_HANDOFF.md
+docs/TASKS.md
+docs/tasks/
+docs/superpowers/
+docs/**/plans/
+docs/**/handoff*.md
+docs/**/*handoff*.md
+docs/**/*agent*.md
+
+# Local agent/helper artifacts
+.agents/
+.superpowers/
+create_*.py
+*.zip
+
+# Test/demo scratch artifacts
+screenshots/
+recordings/
+*.webm
+*.mp4
